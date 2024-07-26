@@ -1,5 +1,7 @@
 import { cn } from "@/utils/cn";
 import { BackgroundGradientAnimation } from "./GradientBg";
+import { Globe } from "./Globe";
+import { GlobeDemo } from "./GridGlobe";
 
 export const BentoGrid = ({
   className,
@@ -11,7 +13,7 @@ export const BentoGrid = ({
   return (
     <div
       className={cn(
-        "grid grid-cols-1 md:grid-cols-6 lg:grid-cols-5 md:grid-row-7 gap-4 lg:gap-8 mx-auto",
+        "grid grid-cols-1 md:grid-cols-6 lg:grid-cols-5 md:grid-row-7 gap-4 lg:gap-8 mx-auto border-white/[.1]",
         className
       )}
     >
@@ -46,7 +48,7 @@ export const BentoGridItem = ({
   return (
     <div
       className={cn(
-        "relative row-span-1 rounded-3xl group/bento hover:shadow-xl transition duration-200 shadow-input dark:shadow-none p-4 dark:bg-black dark:border-white/[0.2] bg-white border-transparent justify-between flex flex-col space-y-4 border-2 ",
+        "relative overflow-hidden row-span-1 rounded-3xl group/bento hover:shadow-xl transition duration-400 shadow-input dark:shadow-none justify-between flex flex-col space-y-4 border-2 ",
         className
       )}
       style={{
@@ -78,15 +80,15 @@ export const BentoGridItem = ({
         </div>
         {id === 6 && (
           <div>
-            <BackgroundGradientAnimation>
-              <div className="absolute z-50 flex items-center justify-center text-white font-bold" />
-            </BackgroundGradientAnimation>
+            {/* <BackgroundGradientAnimation> */}
+            <div className="absolute z-50 flex items-center justify-center text-white font-bold" />
+            {/* </BackgroundGradientAnimation> */}
           </div>
         )}
         <div
           className={cn(
             titleClassName,
-            "group-hover/bento:translate-x-2 transition duration-200 relative md:h-full min-h-40 flex flex-col px-5 p-5 lg:p-10"
+            "group-hover/bento:translate-x-2 transition duration-300 relative md:h-full min-h-40 flex flex-col px-5 p-5 lg:p-10"
           )}
         >
           <div className="font-sans font-extralight text-[#c1c2d3] text-sm md:text-xs lg:text-base z-10">
@@ -95,10 +97,40 @@ export const BentoGridItem = ({
           <div className="font-sans font-bold text-lg lg:text-3xl max-w-96 z-10">
             {title}
           </div>
+
+          {id === 2 && <h2>Globe</h2>}
+          {id === 3 && (
+            <div className="flex gap-1 lg:gap-5 w-fit absolute -right-3 lg:-right-2">
+              <div className="flex flex-col gap-3 lg:gap-8">
+                {["React.js", "Next.js", "TypeScript"].map((item) => (
+                  <span
+                    key={item}
+                    className="py-2 lg:py-4 lg:px-3 px-3 text-xs lg:text-base opacity-50 lg:opacity-100 rounded-lg text-center bg-[#10132e]"
+                  >
+                    {item}
+                  </span>
+                ))}
+                <span className="py-4 px-3 rounded-lg text-center bg-[#10132e]"></span>
+              </div>
+              <div className="flex flex-col gap-3 lg:gap-8">
+                <span className="py-4 px-3 rounded-lg text-center bg-[#10132e]"></span>
+                {["Node.js", "Postgres", "MongoDB"].map((item) => (
+                  <span
+                    key={item}
+                    className="py-2 lg:py-4 lg:px-3 px-3 text-xs lg:text-base opacity-50 lg:opacity-100 rounded-lg text-center bg-[#10132e]"
+                  >
+                    {item}
+                  </span>
+                ))}
+              </div>
+            </div>
+          )}
+          {id === 6 && (
+            <div className="mt-5 relative">
+              <div className={`absolute -bottom-5`}>Test</div>
+            </div>
+          )}
         </div>
-      </div>
-      <div className="group-hover/bento:translate-x-2 transition duration-300">
-        {icon}
       </div>
     </div>
   );
