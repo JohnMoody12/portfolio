@@ -1,6 +1,9 @@
 import React from "react";
 import { Spotlight } from "./ui/Spotlight";
 import { TextGenerateEffect } from "./ui/text-generate-effect";
+import { TopButton } from "./ui/TopButton";
+import { FaLocationArrow } from "react-icons/fa6";
+import { FloatingNav } from "./ui/floating-navbar";
 
 function Hero() {
   return (
@@ -12,10 +15,11 @@ function Hero() {
         />
         <Spotlight
           className="top-10 left-full h-[200vh] w-[50vh]"
-          fill="purple"
+          fill="green"
         />
         <Spotlight className="top-28 left-80 h-[80vh] w-[50vw]" fill="blue" />
       </div>
+
       <div
         id="two"
         className="h-screen w-full dark:bg-black-100 bg-white dark:bg-grid-white-100/[0.015] bg-grid-black/[0.015] flex items-center justify-center absolute top-0 left-0 "
@@ -26,12 +30,22 @@ function Hero() {
       <div id="three" className="flex justify-center relative my-20 z-10">
         <div className="max-w-[89vw] md:max-w-2xl lg:max-w-[60vw] flex flex-col items-center justify-center">
           <h2 className="uppercase tracking-widest text-cs text-center text-blue-100 max-w-100">
-            Dynamic Web Magic With Next.js
+            John Moody
           </h2>
           <TextGenerateEffect
             className="text-center text-3xl md:text-5xl lg:text-6xl"
-            words="Transforming Concepts into Seamless Experiences"
+            words="Passion in Engineering"
           />
+          <p className="text-center md:tracking-wider mb-4 text-sm md:text-lg lg:text-2xl">
+            Hi, I&apos;m John
+          </p>
+          <a href="/about">
+            <TopButton
+              title="My Work"
+              position="right"
+              icon={<FaLocationArrow />}
+            />
+          </a>
         </div>
       </div>
     </div>
